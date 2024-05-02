@@ -1,0 +1,35 @@
+@startuml
+' --> riga di commento 
+package GeometryLibrary << Folder >>
+{
+' per creare una classe:
+class Triangle
+{
++ Vertices : Matrix3d
++ Triangle(Vertices)
++double ComputerArea()
+}
+
+class Polygons
+{
++Vertices: MatrixXd
++listPolygons:vector<vector<unsigned int>>
++vector<vector<vector<unsigned int >>> computeTriangulation()
++ vector < double> computeArea()
++void gedimInterface(v<v<unsigned int >>&) 
+..TEST POLYGONS..
+TESTCOMPUTEAREA
+TESTTRIANGULATION
+}
+}
+
+package Gedim <<Frame>>
+{
+}
+note "Gedim is an external library" as GedimN
+GedimN .. Gedim
+
+Gedim ..> Polygons::gedimInterface
+
+Triangle "many"--o "1" Polygons: is made up
+@enduml
